@@ -1,0 +1,52 @@
+<div class="w-[320px] h-[400px]">
+  <div ubCard class="p-6 relative group hover:cursor-pointer w-full h-full">
+    <div ubCardContent>
+      <div class="w-full h-[250px]">
+        <img
+          [src]="product.thumnailUrl"
+          alt="{{ product.name }}"
+          width="200px"
+          height="auto"
+        />
+      </div>
+      <div class="w-full flex justify-center">
+        <div
+          class="flex justify-center gap-x-6 opacity-0 group-hover:opacity-100 duration-300 ease-in absolute bottom-20"
+        >
+          <div
+            class="flex bg-gray-200 w-10 h-10 items-center justify-center place-self-center rounded-full hover:scale-110"
+            [ubDialogTrigger]="dialog"
+            (click)="handlePreViewProduct($event)"
+          >
+            <fa-icon
+              class="fa-solid fa-maximize text-gray-600 text-xl"
+              [icon]="faExpand"
+            ></fa-icon>
+          </div>
+          <div
+            class="flex bg-gray-200 w-10 h-10 items-center justify-center place-self-center rounded-full hover:scale-110"
+          >
+            <fa-icon
+              class="fa-solid fa-maximize text-gray-600 text-xl"
+              [icon]="faCartShopping"
+              (click)="handleAddOrderProduct(product, $event)"
+            ></fa-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-neutral-700">
+      <div class="text-lg w-full overflow-hidden h-[30px]">
+        {{ product.name }}
+      </div>
+      <div class="text-lg mt-2 font-semibold">
+        {{ product.price | formatCurrency }}
+      </div>
+    </div>
+  </div>
+  <div class="w-screen">
+    <ng-template #dialog>
+      <preview-product-modal [productId]="product.id"></preview-product-modal>
+    </ng-template>
+  </div>
+</div>

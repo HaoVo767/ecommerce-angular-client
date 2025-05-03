@@ -1,0 +1,13 @@
+<div class="mt-10 w-full p-6 2xl:w-3/4 mx-auto">
+  <h1 class="text-3xl font-semibold text-black">Shopping Cart</h1>
+  <div class="mt-12 lg:grid lg:grid-cols-12 lg:items-start gap-x-12">
+    <div class="lg:col-span-8">
+      <div *ngFor="let product of orderProductProvider.orderList()">
+        <cart-item [product]="product"></cart-item>
+      </div>
+    </div>
+    <div class="lg:col-span-4">
+      <order-summary></order-summary>
+    </div>
+  </div>
+</div>

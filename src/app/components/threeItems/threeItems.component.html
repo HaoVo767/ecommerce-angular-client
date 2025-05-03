@@ -1,0 +1,69 @@
+<div class="h-full mt-10">
+<div class="h-2/3 grid grid-cols-1 gap-y-4 md:grid-cols-5 h-[1020px] md:h-[520px] mx-8 mt-2 gap-x-4" >
+  <div [routerLink]='["/detail-product", products[0]?.id]' class="grid h-full grid-cols-1 md:grid-cols-2 sm:col-span-3 border border-gray-300 rounded-xl hover:border-sky-400 hover:cursor-pointer hover:border-2 text-center hover:scale-101 duration-300 ease-in">
+    <div class=" place-self-center">
+      <img [src]="products[0]?.imageUrl" alt="featured product" width="280px" height="auto" class="p-4"/>
+    </div>
+    <div class="text-left text-xl grid items-center text-neutral-700 mx-6 overflow-hidden">
+      <div>
+
+        <div>
+          {{products[0]?.name}}
+        </div>
+        <div class="font-medium text-neutral-900">
+          {{products[0]?.price | formatCurrency}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sm:col-span-2 flex flex-col gap-y-4">
+    <div [routerLink]='["/detail-product", products[1]?.id]' class="h-1/2 border p-2 grid grid-cols-1 lg:grid-cols-2 border-gray-300 rounded-xl hover:border-sky-400 hover:cursor-pointer hover:border-2 duration-300 ease-in hover:scale-101">
+      <div class=" place-self-center">
+        <img [src]="products[1]?.imageUrl" alt="featured product" width="120px" height="auto" class="p-4"/>
+      </div>
+      <div class="text-left text-xl grid items-center text-neutral-700 mx-6 overflow-hidden">
+        <div>
+
+          <div>
+            {{products[1]?.name}}
+          </div>
+          <div class="font-medium text-neutral-900">
+            {{products[1]?.price | formatCurrency}}
+          </div>
+        </div>
+        </div>
+    </div>
+    <div [routerLink]='["/detail-product", products[2]?.id]' class="h-1/2 p-2 border grid grid-cols-1 lg:grid-cols-2 border-gray-300 rounded-xl hover:border-sky-400 hover:cursor-pointer hover:border-2 duration-300 ease-in hover:scale-101">
+<div class=" place-self-center">
+  <img [src]="products[2]?.imageUrl" alt="featured product" width="120px" height="auto" class="p-4"/>
+</div>
+<div class="text-left text-xl grid items-center text-neutral-700 mx-6 overflow-hidden">
+  <div>
+    <div class=" h-[50px] overflow-y-hidden">
+      {{products[2]?.name}}
+    </div>
+    <div class="font-medium text-neutral-900">
+      {{products[2]?.price | formatCurrency}}
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<!-- galleyry featured product -->
+<div class="h-1/3 w-full overflow-x-scroll no-scrollbar">
+  <div class="flex mt-8 gap-x-4 mx-4 w-full p-2"
+  id="galleryElement"
+  >
+  
+  <div *ngFor="let product of products">
+    <div [routerLink]="['/detail-product', product?.id]" class="border galleryItem transition-transform ease-[cubic-bezier(0.25, 1, 0.5, 1)] relative border-gray-300 items-center rounded-xl h-[200px] w-[300px] overflow-hidden
+    hover:cursor-pointer hover:border-sky-400 hover:scale-101 duration-300 ease-in
+    ">
+    <img [src]="product.thumnailUrl" alt="product.name" width="150px" height="auto" class="place-self-center p-2"/>
+  </div>
+</div>
+</div>
+</div>
+</div>

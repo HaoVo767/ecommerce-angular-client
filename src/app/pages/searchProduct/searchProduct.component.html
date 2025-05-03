@@ -1,0 +1,9 @@
+<div
+  class="mx-4 md:mx-8 gap-y-6 mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-center text-center place-items-center">
+  <div *ngFor="let product of products">
+    <card-product [routerLink]="['/detail-product', product?.id]" [product]="product"></card-product>
+  </div>
+</div>
+<div *ngIf="!products.length" class="w-full">
+  <no-result></no-result>
+</div>

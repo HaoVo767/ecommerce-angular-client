@@ -1,0 +1,16 @@
+<div class="flex flex-wrap">
+    <div class="w-full flex flex-col mx-8">
+      <div class=>
+        <filter [filterData]="filterColorData"></filter>
+      </div>
+      <div>
+        <filter *ngIf="filter['category'] === '1ff65c43-056a-4927-9367-b01520689953'" class="mt-4" [filterData]="filterSizeData"></filter>
+      </div>
+    </div>
+
+  <div class="mx-4 grow xl:mx-8 gap-y-6 mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center justify-between text-center place-items-center" >
+    <div *ngFor="let product of products">
+      <card-product [routerLink]="['/detail-product', product.id]" [product]="product"></card-product>
+    </div>
+  </div>
+</div>

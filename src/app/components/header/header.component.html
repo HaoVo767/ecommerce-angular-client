@@ -1,0 +1,91 @@
+<div
+  class="flex bg-gray-200 h-[72px] justify-between items-center px-4 md:px-6 lg:px-10"
+>
+  <div class="flex gap-x-4">
+    <div routerLink="/home" class="text-2xl font-bold hover:cursor-pointer">
+      Store
+    </div>
+    <button
+      ubButton
+      class="sm:hidden"
+      variant="outline"
+      [ubDropdownMenuTrigger]="content"
+    >
+      <fa-icon
+        [icon]="faBars"
+        class="text-xl relative top-[2px] cursor-pointer"
+      ></fa-icon>
+    </button>
+    <!-- menu navbar  -->
+    <ng-template #content>
+      <div ubDropdownMenuContent class="w-56">
+        <div ubDropdownMenuLabel class="font-medium text-md">Danh mục</div>
+        <div ubDropdownMenuSeparator></div>
+        <div *ngFor="let category of categories">
+          <div class="cursor-pointer" ubDropdownMenuCheckboxItem>
+            <div
+              class="cursor-pointer"
+              routerLinkActive="active"
+              [routerLink]="['/category', category.id]"
+            >
+              {{ category.name }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="flex gap-x-6">
+    <div
+      class="justify-center gap-x-2 hidden sm:block"
+      *ngFor="let category of categories"
+    >
+      <div
+        routerLinkActive="active"
+        [routerLink]="['/category', category.id]"
+        class="hover:cursor-pointer text-gray-600"
+      >
+        {{ category.name }}
+      </div>
+    </div>
+  </div>
+  <div class="flex hidden sm:block items-center">
+    <form [formGroup]="formSearchProduct" (ngSubmit)="onSubmit()">
+      <input
+        class="w-[250px] md:w-[450px] mt-4 p-2 border-gray-500"
+        value="{{ searchKey }}"
+        ubInput
+        type="text"
+        placeholder="Tìm theo tên sản phẩm..."
+        formControlName="productName"
+      />
+      <button type="submit" class="invisible">submit</button>
+    </form>
+  </div>
+
+  <div
+    [matBadge]="orderProductProvider.orderList().length"
+    matBadgeSize="large"
+  >
+    <fa-icon
+      routerLink="/cart"
+      class="text-2xl hover:cursor-pointer text-neutral-700"
+      [icon]="faCartShopping"
+    ></fa-icon>
+  </div>
+</div>
+
+<div class="flex items-center sm:hidden justify-center">
+  <form [formGroup]="formSearchProduct" (ngSubmit)="onSubmit()">
+    <input
+      class="w-[250px] md:w-[500px] mt-4 p-2 border-gray-500"
+      value="{{ searchKey }}"
+      ubInput
+      type="text"
+      placeholder="Tìm theo tên sản phẩm..."
+      formControlName="productName"
+    />
+    <button type="submit" class="invisible">submit</button>
+  </form>
+</div>

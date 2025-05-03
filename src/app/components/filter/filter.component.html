@@ -1,0 +1,15 @@
+<div class="mt-8 md:mx-6">
+  <div class="text-lg font-semibold">{{filterData.name}}</div>
+  <div class="flex gap-x-2 mt-1">
+  <div *ngFor="let item of filterData.data">
+      <button 
+      (click)="handleChangeFilter(item.id)" 
+      class="bg-gray-100 text-gray-700 hover:cursor-pointer hover:bg-gray-200" ubButton
+      [style.background-color]="activeId === item.id ? 'black' : ''"
+      [style.color]="activeId === item.id ? 'white' : ''"
+      >
+        {{item.name}}
+      </button>
+    </div>
+  </div>
+</div>

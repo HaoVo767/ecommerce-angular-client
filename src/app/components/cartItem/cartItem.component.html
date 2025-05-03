@@ -1,0 +1,42 @@
+<div class="md:flex y-6 border-b">
+  <div
+    class="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48 my-4"
+  >
+    <img
+      priority
+      fill
+      [src]="product.thumnailUrl"
+      alt="cart product image"
+      class="object-cover object-center"
+    />
+  </div>
+  <div
+    class="relative ml:4 flex flex-1 flex-col justify-between sm:ml-6 md:place-self-center"
+  >
+    <div class="absolute z-10 right-0 top-0">
+      <fa-icon
+        [icon]="facircleXmark"
+        class="text-3xl hover:cursor-pointer hover:text-[35px] duration-200 ease-in"
+        style="color: #ec4b4b"
+        (click)="handleRemoveItem(product)"
+      ></fa-icon>
+    </div>
+    <div
+      class="relative sm:grid sm:grid-cols-2 sm:gap-x-6 my-6 sm:my-0 sm:pr-0"
+    >
+      <div class="place-self-center">
+        <p class="text-lg text-black">{{ product.name }}</p>
+      </div>
+      <div class="mt-1 flex text-sm">
+        <div class="text-gray-900 flex">
+          <p class="text-gray-500">color</p>
+          : {{ product.color?.name }}
+        </div>
+        <div class="text-gray-900 ml-4 border-l border-gray-500 pl-4 flex">
+          <p class="text-gray-500">size</p>
+          : {{ product.size?.name }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

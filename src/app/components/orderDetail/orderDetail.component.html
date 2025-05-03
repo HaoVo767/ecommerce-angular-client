@@ -1,0 +1,55 @@
+<div class="w-2/3 mx-auto border border-gray-100 shadow-2xl rounded-2xl p-4">
+  <div class="mx-auto flex text-green-400 gap-x-2 justify-center">
+    <fa-icon
+      [icon]="faCircleCheck"
+      class="text-2xl relative bottom-1"
+    ></fa-icon>
+    Order success
+  </div>
+  <div class="flex-col gap-y-4 py-6 md:flex border-b">
+    <div *ngFor="let item of orderDetail.orderItems">
+      <div
+        class="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48"
+      >
+        <img
+          [src]="item.product.thumnailUrl"
+          alt="cart product image"
+          class="object-cover object-center"
+        />
+      </div>
+      <div class="relative ml:4 flex flex-1 flex-col justify-between sm:ml-6">
+        <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+          <div class="flex justify-between">
+            <p class="text-lg text-gray-700">
+              {{ item.product.name }}
+            </p>
+          </div>
+          <div class="mt-1 flex text-sm">
+            <div class="text-gray-900 flex">
+              <p class="text-gray-500">color</p>
+              : {{ item.product.color.name }}
+            </div>
+            <div class="text-gray-900 ml-4 border-l border-gray-500 pl-4 flex">
+              <p class="text-gray-500">size</p>
+              : {{ item.product.size.name }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-between mt-6 mx-6">
+    <div class="text-gray-600">
+      <div>Name: {{ orderDetail.name }}</div>
+      <div>Phone: {{ orderDetail.phone }}</div>
+      <div>Address: {{ orderDetail.address }}</div>
+    </div>
+    <div class="text-gray-600 flex-col">
+      Total
+      <div>
+        {{ totalPrice | formatCurrency }}
+      </div>
+    </div>
+  </div>
+</div>
