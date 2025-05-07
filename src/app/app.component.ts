@@ -17,4 +17,9 @@ export class AppComponent implements OnInit {
   isShow: boolean = false;
 
   ngOnInit(): void {}
+
+  handleViewSource() {
+    window.location.href =
+      'https://github.com/HaoVo767/ecommerce-angular-client';
+  }
 }
